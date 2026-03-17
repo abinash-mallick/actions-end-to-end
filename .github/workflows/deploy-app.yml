@@ -6,6 +6,9 @@ on:
 jobs:
 
     deploy:
+      env:
+        DOCKER_USER: ${{vars.DOCKER_USERNAME}}
+        DOCKER_TAG: ${{github.sha}}
       runs-on: ubuntu-latest
       
       steps:
