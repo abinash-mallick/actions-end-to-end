@@ -16,5 +16,5 @@ jobs:
           uses: docker/setup-compose-action@v2
 
         - name: Run the container
-          run: docker-compose up --force-recreate -d --build --pull always
+          run: docker compose up --force-recreate -d --build --pull always
     
