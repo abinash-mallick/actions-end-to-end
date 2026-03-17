@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+    web:
+      image: ${DOCKER_USERNAME}/github-actions-app:${github.sha}
+      ports:
+       - "80:80"
+    
