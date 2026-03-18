@@ -27,5 +27,9 @@ jobs:
         uses: ./.github/workflows/image-scan.yml
         secrets: inherit
 
+  Deploy-to-Prod:
+        needs: [image-scan]
+        uses: ./.github/workflows/deploy-prod.yml
+
       
     
