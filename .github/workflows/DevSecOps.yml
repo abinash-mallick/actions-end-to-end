@@ -30,6 +30,6 @@ jobs:
   Deploy-to-Prod:
         needs: [image-scan]
         uses: ./.github/workflows/deploy-prod.yml
-
+        secrets: inherit
       
     
