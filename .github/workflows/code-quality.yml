@@ -1,2 +1,33 @@
 name: code-quality check
 
+on:
+ workflow_call:
+   
+jobs:
+  validate:
+   strategy:
+     fail-fast: true
+     matrix:
+       python-versions: ["3.10","3.11","3.12"]
+         
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout the code
+       uses: actions/checkout@v4
+
+     - name: Set-up Python ${{matrix.python-versions}}
+       uses: actions/actions/setup-python@v6
+       with:
+         python-version: ${{matrix.python-versions}}
+
+     - name: Install the dependencies
+       run: pip install -r requirements.txt
+
+     - name: Run the linter
+       run: pylint app.py
+
+     - name: Run Static Application and Security Testing
+       run: bandit -r app.py
+
+       
+  
