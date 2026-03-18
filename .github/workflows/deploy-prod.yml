@@ -10,6 +10,8 @@ jobs:
     deploytoProd:
         runs-on: ubuntu-latest
         steps:
+            - name: Show the host
+              run: echo "host is ${{ secrets.EC2_HOST }}"
             - name: Connect to prod server
               uses: appleboy/ssh-action@v1
               with:
