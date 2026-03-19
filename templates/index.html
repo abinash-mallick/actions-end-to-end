@@ -1,113 +1,163 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DevOps Hero To SuperHero</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App</title>
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-body{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
-color:#e0e0e0
-}
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-.container{text-align:center;padding:2rem;max-width:640px}
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 50px;
+        }
 
-h1{
-font-size:2.5rem;
-background:linear-gradient(90deg,#00d2ff,#7b2ff7);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-margin-bottom:.5rem
-}
+        header h1 {
+            font-size: 24px;
+        }
 
-.badge{
-display:inline-block;
-margin:1rem 0;
-padding:.4rem 1.2rem;
-border:1px solid #7b2ff7;
-border-radius:999px;
-font-size:.9rem;
-color:#c4b5fd
-}
+        nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
 
-.pipeline{
-margin-bottom:1.5rem;
-font-size:.9rem;
-color:#9ca3af
-}
+        nav a:hover {
+            opacity: 0.7;
+        }
 
-.cards{
-display:flex;
-gap:1rem;
-justify-content:center;
-flex-wrap:wrap
-}
+        .hero {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px;
+        }
 
-.card{
-background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.1);
-border-radius:12px;
-padding:1.4rem;
-min-width:150px
-}
+        .hero-text {
+            max-width: 500px;
+        }
 
-.card span{
-display:block;
-font-size:.7rem;
-color:#9ca3af;
-margin-bottom:.4rem;
-letter-spacing:.1em
-}
+        .hero-text h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
 
-.card strong{
-font-size:1.2rem;
-color:#f9fafb
-}
-</style>
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background: white;
+            color: #764ba2;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            width: 300px;
+            text-align: center;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="container">
+<header>
+    <h1>🚀 MyApp</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
 
-<h1>DevOps Zero To Hero</h1>
-<div class="badge">Josh Batch 10 </div>
+<section class="hero">
+    <div class="hero-text">
+        <h2>Build. Deploy. Scale.</h2>
+        <p>
+            A simple and powerful application to showcase your DevOps pipeline.
+            Fast, secure, and production-ready.
+        </p>
+        <button class="btn">Get Started</button>
+    </div>
 
-<div class="pipeline">
-Built • Tested • Linted • Deployed via GitHub Actions
-</div>
+    <div class="card">
+        <h3>🔥 Status</h3>
+        <p>Your application is running successfully!</p>
+    </div>
+</section>
 
-<div class="cards">
-<div class="card">
-<span>Framework</span>
-<strong>Flask 3.1</strong>
-</div>
-
-<div class="card">
-<span>Runtime</span>
-<strong>Python 3.14</strong>
-</div>
-
-<div class="card">
-<span>Deploy</span>
-<strong>AWS ECS</strong>
-</div>
-
-<div class="card">
-<span>CI/CD</span>
-<strong>GitHub Actions</strong>
-</div>
-</div>
-
-</div>
+<footer>
+    © 2026 MyApp | Built with ❤️
+</footer>
 
 </body>
 </html>
+```
+
+---
+
+## ✨ Features of this page
+
+* Modern gradient background 🎨
+* Clean layout (header + hero + card)
+* Glassmorphism card effect
+* Responsive structure
+* Perfect for your **Flask + Docker app homepage**
+
+---
+
+## 🚀 Want next level?
+
+I can upgrade this with:
+
+* Animations ✨
+* Dark/light toggle 🌙
+* API health check integration 🔥
+* Real DevOps dashboard UI
+
+Just tell me 👍
