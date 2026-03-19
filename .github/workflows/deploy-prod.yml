@@ -8,21 +8,25 @@ on:
 jobs:
 
     deploytoProd:
+        env:
+          DOCKER_USER: ${{vars.DOCKER_USERNAME}}
+          DOCKER_TAG: ${{github.sha}}
         runs-on: ubuntu-latest
         steps:
             - name: Checkout the code
               uses: actions/checkout@v4
 
-            - name: Connect to prod server
+            - name: Connect to prod server 
               uses: appleboy/ssh-action@v1
               with:
                 host: ${{ secrets.EC2_HOST }}
                 username: ${{ secrets.EC2_USERNAME }}
                 key: ${{ secrets.EC2_KEY }}
                 script: |
-                    echo "Starting Deployment........."
+                    echo "Configure Deployment........."
                     mkdir -p pipeline
-                    pwd
+                    sudo apt-get update
+                    sudo apt install docker-compose-v2 -y
 
             - name: Copy the dockercompose file
               uses: appleboy/scp-action@v1
@@ -33,19 +37,26 @@ jobs:
                     source: "docker-compose.yml"
                     target: "~/pipeline"
 
-            - name: Login to DockerHub
-              uses: docker/login-action@v3
-              with:
-                username: ${{ vars.DOCKER_USERNAME }}
-                password: ${{ secrets.DOCKER_TOKEN }}
 
-            - name: Install dependencies
-              run: |
-                  sudo apt-get update
-                  sudo apt install docker-compose -y
-            
             - name: Start the application
-              run: docker compose up --force-recreate -d --build --pull always
+              uses: appleboy/ssh-action@v1
+              with:
+                host: ${{ secrets.EC2_HOST }}
+                username: ${{ secrets.EC2_USERNAME }}
+                key: ${{ secrets.EC2_KEY }}
+                script: |
+                  cd ~/pipeline
+                  echo ${{ secrets.DOCKER_TOKEN }} | docker login --username $DOCKER_USER --password-stdin
+
+                
+
+
+
+
+                  
+
+              
+
 
 
 
