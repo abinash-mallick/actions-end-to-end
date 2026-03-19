@@ -10,6 +10,8 @@ jobs:
     deploytoProd:
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout the code
+              uses: actions/checkout@v4
 
             - name: Connect to prod server
               uses: appleboy/ssh-action@v1
@@ -20,7 +22,6 @@ jobs:
                 script: |
                     echo "Starting Deployment........."
                     mkdir -p pipeline
-                    pwd
 
             - name: Copy the dockercompose file
               uses: appleboy/scp-action@v1
