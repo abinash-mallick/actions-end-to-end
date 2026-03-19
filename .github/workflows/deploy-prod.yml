@@ -45,6 +45,9 @@ jobs:
                 username: ${{ secrets.EC2_USERNAME }}
                 key: ${{ secrets.EC2_KEY }}
                 script: |
+                  export DOCKER_USER="${{ vars.DOCKER_USERNAME }}"
+                  export DOCKER_TOKEN="${{ secrets.DOCKER_TOKEN }}"
+                  export DOCKER_TAG="${{ github.sha }}"
                   cd ~/pipeline
                   echo ${{ secrets.DOCKER_TOKEN }} | docker login --username ${{vars.DOCKER_USERNAME}} --password-stdin
                   docker compose down
