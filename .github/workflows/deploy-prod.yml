@@ -47,7 +47,8 @@ jobs:
                 script: |
                   cd ~/pipeline
                   echo ${{ secrets.DOCKER_TOKEN }} | docker login --username ${{vars.DOCKER_USERNAME}} --password-stdin
-
+                  docker compose down
+                  docker compose up --force-recreate -d --build --pull always
                 
 
 
