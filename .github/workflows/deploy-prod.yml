@@ -46,7 +46,7 @@ jobs:
                 key: ${{ secrets.EC2_KEY }}
                 script: |
                   cd ~/pipeline
-                  echo ${{ secrets.DOCKER_TOKEN }} | docker login --username $DOCKER_USER --password-stdin
+                  echo ${{ secrets.DOCKER_TOKEN }} | docker login --username ${{vars.DOCKER_USERNAME}} --password-stdin
 
                 
 
