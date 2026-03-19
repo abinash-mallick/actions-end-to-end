@@ -10,8 +10,7 @@ jobs:
     deploytoProd:
         runs-on: ubuntu-latest
         steps:
-            - name: Show the host
-              run: echo "host is ${{ secrets.EC2_HOST }}"
+
             - name: Connect to prod server
               uses: appleboy/ssh-action@v1
               with:
@@ -20,6 +19,16 @@ jobs:
                 key: ${{ secrets.EC2_KEY }}
                 script: |
                     echo "Starting Deployment........."
-                    mkdir prod-folder
+                    mkdir -p pipeline
+
+            - name: Copy the dockercompose file
+              uses: appleboy/scp-action@v1
+              with: 
+                    host: ${{ secrets.EC2_HOST }}
+                    username: ${{ secrets.EC2_USERNAME }}
+                    key: ${{ secrets.EC2_KEY }}
+                    source: ~/docker-compose.yml
+                    target: ~/pipeline
+
                
        
